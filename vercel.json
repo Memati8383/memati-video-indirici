@@ -1,9 +1,5 @@
 {
-  "functions": {
-    "server.js": {
-      "maxDuration": 60
-    }
-  },
+  "version": 2,
   "rewrites": [
     {
       "source": "/api/(.*)",
