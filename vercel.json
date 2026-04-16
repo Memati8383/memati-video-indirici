@@ -12,16 +12,8 @@
   ],
   "rewrites": [
     {
-      "source": "/api/(.*)",
+      "source": "/(.*)",
       "destination": "/server.js"
-    },
-    {
-      "source": "/(.*)\\.(css|js|png|jpg|jpeg|gif|svg|ico)$",
-      "destination": "/public/$1.$2"
-    },
-    {
-      "source": "/",
-      "destination": "/public/index.html"
     }
   ]
 }
