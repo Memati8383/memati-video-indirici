@@ -30,8 +30,8 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Downloads klasörü
-const DOWNLOADS_DIR = path.join(__dirname, 'downloads');
-if (!fs.existsSync(DOWNLOADS_DIR)) {
+const DOWNLOADS_DIR = process.env.VERCEL ? '/tmp' : path.join(__dirname, 'downloads');
+if (!process.env.VERCEL && !fs.existsSync(DOWNLOADS_DIR)) {
     fs.mkdirSync(DOWNLOADS_DIR, { recursive: true });
 }
 
@@ -821,11 +821,14 @@ app.get('{*path}', (req, res) => {
 });
 
 // Başlat
-app.listen(PORT, () => {
-    console.log(`\n  ╔══════════════════════════════════════════════╗`);
-    console.log(`  ║   NYC Reels İndirici Web v1.0                ║`);
-    console.log(`  ║   http://localhost:${PORT}                      ║`);
-    console.log(`  ║   Proxy: corsproxy.io ✓                      ║`);
-    console.log(`  ║   Python: Gerekmiyor ✓                       ║`);
-    console.log(`  ╚══════════════════════════════════════════════╝\n`);
-});
+if (!process.env.VERCEL) {
+    app.listen(PORT, () => {
+        console.log(`\n  ╔══════════════════════════════════════════════╗`);
+        console.log(`  ║   NYC Reels İndirici Web v1.0                ║`);
+        console.log(`  ║   http://localhost:${PORT}                      ║`);
+        console.log(`  ║   Proxy: corsproxy.io ✓                      ║`);
+        console.log(`  ║   Python: Gerekmiyor ✓                       ║`);
+        console.log(`  ╚══════════════════════════════════════════════╝\n`);
+    });
+}
+module.exports = app;
