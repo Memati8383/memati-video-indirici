@@ -1,0 +1,31 @@
+Müsterilerin dosyayi indirdiginde hiçbir sorun yasamadan kurabilmesi için çok net ve profesyonel bir KURULUM_REHBERI.txt taslagi hazirladim.
+
+Bu metni kopyalayip klasörün içine bir metin belgesi olarak ekleyebilirsin. Daha önce belirttigin gibi okumayi zorlastiran madde isaretleri (yuvarlaklar) kullanmadim, dogrudan numaralandirilmis akici bir rehber oldu:
+
+NYC SOFTWARE - REELS INDIRICI V3 PRO KURULUM TALIMATLARI
+
+Merhaba, NYC Software'i tercih ettiginiz için tesekkür ederiz. Yazilimin açik kaynak kodlu sürümünü sorunsuz bir sekilde çalistirmak için asagidaki adimlari sirasiyla uygulamaniz yeterlidir.
+
+1. Python Kurulumu (Eger Yüklü Degilse)
+Bilgisayarinizda Python yaziliminin yüklü olmasi gerekmektedir. Yüklü degilse python.org adresinden en güncel 3.x sürümünü indirin.
+ÖNEMLI DETAY: Indirdiginiz kurulum dosyasini açtiginizda, ilk ekranda en alt kisimda bulunan "Add Python to PATH" (veya Add python.exe to PATH) kutucugunu kesinlikle isaretleyin ve ardindan "Install Now" diyerek kurun. Bu adim kütüphanelerin sorunsuz kurulmasi için sarttir.
+
+2. Gerekli Kütüphanelerin Yüklenmesi
+Yazilimin arayüzü ve video indirme motorunun çalismasi için gerekli kütüphaneleri kurmaliyiz.
+Proje klasörünün (main.py dosyasinin bulundugu yer) içine girin.
+Klasör içinde bos bir alana klavyenizdeki "Shift" tusuna basili tutarak sag tiklayin.
+Açilan menüden "Terminali Burada Aç", "PowerShell Penceresini Burada Aç" veya "Komut Istemini Burada Aç" seçenegine tiklayin.
+Açilan siyah ekrana asagidaki kodu kopyalayip yapistirin ve Enter tusuna basin:
+pip install customtkinter yt-dlp pillow requests
+
+3. Programi Çalistirma
+Kütüphanelerin yüklenmesi tamamlandiginda, klasör içindeki "main.py" dosyasina çift tiklayarak programi hemen baslatabilirsiniz. Indirilen videolar otomatik olarak "downloads" klasörüne kaydedilecektir.
+(Eger çift tiklayarak açamazsaniz, az önce açtiginiz terminal ekranina "python main.py" yazip Enter'a basarak da çalistirabilirsiniz.)
+
+4. Ileriye Dönük Güncelleme (Hata Çözümü)
+YouTube, X veya Instagram gibi platformlar zaman zaman kendi altyapilarini güncellerler. Eger ilerleyen aylarda indirme yaparken "Hata" veya "Geçersiz Link" uyarilari almaya baslarsaniz, programin indirme motorunu güncellemeniz gerekir.
+Bunun için terminali açip su komutu girmeniz yeterlidir:
+pip install --upgrade yt-dlp
+
+Destek ve Iletisim Için:
+Web Sitemiz: nycsoftware.org
