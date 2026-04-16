@@ -27,9 +27,7 @@ const PORT = process.env.PORT || 3000;
 // ==========================================================
 app.use(cors());
 app.use(express.json());
-if (!process.env.VERCEL) {
-    app.use(express.static(path.join(__dirname, 'public')));
-}
+app.use(express.static(path.join(__dirname, '../public')));
 
 // Downloads klasörü
 const DOWNLOADS_DIR = process.env.VERCEL ? '/tmp' : path.join(__dirname, 'downloads');
@@ -818,12 +816,9 @@ setInterval(() => {
 }, 1800000);
 
 // SPA Fallback
-// SPA Fallback (Only for local)
-if (!process.env.VERCEL) {
-    app.use((req, res) => {
-        res.sendFile(path.join(__dirname, 'public', 'index.html'));
-    });
-}
+app.use((req, res) => {
+    res.sendFile(path.join(__dirname, '../public/index.html'));
+});
 
 // Başlat
 if (!process.env.VERCEL) {
