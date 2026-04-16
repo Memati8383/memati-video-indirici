@@ -816,7 +816,7 @@ setInterval(() => {
 }, 1800000);
 
 // SPA Fallback
-app.get('*', (req, res) => {
+app.use((req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 

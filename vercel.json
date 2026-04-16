@@ -5,14 +5,23 @@
       "src": "server.js",
       "use": "@vercel/node",
       "config": {
-        "maxDuration": 60
+        "maxDuration": 60,
+        "includeFiles": "public/**"
       }
     }
   ],
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/api/(.*)",
       "destination": "/server.js"
+    },
+    {
+      "source": "/(.*)\\.(css|js|png|jpg|jpeg|gif|svg|ico)$",
+      "destination": "/public/$1.$2"
+    },
+    {
+      "source": "/",
+      "destination": "/public/index.html"
     }
   ]
 }
